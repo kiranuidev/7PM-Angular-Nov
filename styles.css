@@ -1,0 +1,39 @@
+/*
+  Element based styling.
+  body is an element
+*/
+
+
+/*body {
+    background-color: rgb(100, 100, 200);
+}*/
+
+#lblFirstName {
+    font-family: monospace;
+    margin: 10px;
+    border: 2px solid black;
+    padding: 2px;
+}
+label {
+    font-family: fantasy;
+}
+
+/*id based Styling
+#controlId {
+ ......
+}
+*/
+
+
+/*Class based styling
+.classname {
+
+}
+*/
+
+.lbl-control {
+    font-family: sans-serif;
+}
+.lbl-control-danger {
+    color: red;
+}
