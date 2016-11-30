@@ -13,9 +13,18 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
   register= {
- 
+  FirstName:"",
+  Gender:"M",
+  Country:"IN"
   }
+
+  Countries=[{name:"India",code:"IN"},
+  {name:"United States",code:"USA"}];
 registerUser(){
    console.log(this.register.FirstName);
 }
+
+ submitForm(form:any){
+    console.log(form);
+ }
 }

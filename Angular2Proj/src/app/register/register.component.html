@@ -1,32 +1,54 @@
-<form class="form-horizontal" name="registerForm">
+<form #form="ngForm" class="form-horizontal" name="registerForm" (ngSubmit)="submitForm(form.value)" novalidate>
     <div class="form-group">
         <label class="col-lg-2 control-label">First Name</label>
         <div class="col-lg-6">
-            <input type="text" class="form-control" name="FirstName" [(ngModel)]="register.FirstName" placeholder="First Name">
+            <input type="text" class="form-control" name="FirstName" required [(ngModel)]="register.FirstName" placeholder="First Name">
         </div>
         {{register.FirstName}}
     </div>
     <div class="form-group">
         <label class="col-lg-2 control-label">Last Name</label>
         <div class="col-lg-6">
-            <input type="text" class="form-control" placeholder="Last Name">
+            <input type="text" class="form-control" name="LastName" placeholder="Last Name" [(ngModel)]="register.LastName">
         </div>
     </div>
     <div class="form-group">
         <label class="col-lg-2 control-label">Age</label>
         <div class="col-lg-6">
-            <input type="text" class="form-control" placeholder="Age">
+            <input type="text" class="form-control" name="Age" placeholder="Age" [(ngModel)]="register.Age">
         </div>
     </div>
     <div class="form-group">
         <label for="inputEmail" class="col-lg-2 control-label">Email</label>
         <div class="col-lg-6">
-            <input class="form-control" id="inputEmail" placeholder="Email" type="text">
+            <input class="form-control" name="Email" id="inputEmail" placeholder="Email" [(ngModel)]="register.Email" type="text">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-lg-2 control-label">Gender</label>
+        <div class="col-lg-6">
+            <input name="gender" type="radio" [(ngModel)]="register.Gender" value="M">Male
+            <input name="gender" type="radio" [(ngModel)]="register.Gender" value="F">Female
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-lg-2 control-label">Countries</label>
+        <div class="col-lg-6">
+            <select class="form-control" name="country" [(ngModel)]="register.Country">
+               <option *ngFor="let country of Countries" [ngValue]="country.code">{{country.name}}</option>
+           </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-lg-2 control-label">I Agree</label>
+        <div class="col-lg-6">
+            <input type="checkbox" name="iAgree" [(ngModel)]="register.Agree">
         </div>
     </div>
     <div class="form-group">
         <div class="col-lg-6 col-lg-offset-2">
-            <button class="btn btn-primary" (click)="registerUser()">Register</button>
+            <button type="submit" class="btn btn-primary" name="registerButton" [disabled]="!register.Agree ">Register</button>
         </div>
     </div>
 
