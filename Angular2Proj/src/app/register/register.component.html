@@ -1,11 +1,22 @@
-<form #form="ngForm" class="form-horizontal" name="registerForm" (ngSubmit)="submitForm(form.value)" novalidate>
-    <div class="form-group">
+<form class="form-horizontal" [formGroup]="registerForm" (ngSubmit)="submitForm(registerForm.value)">
+    <!--pristine is the state of a form which will be set automatically-->
+    <!-- touched is the state of a form if it is touched-->
+    <div class="form-group" [ngClass]="{'has-error':!registerForm.controls['firstName'].valid
+     && !registerForm.controls['firstName'].pristine}">
         <label class="col-lg-2 control-label">First Name</label>
         <div class="col-lg-6">
-            <input type="text" class="form-control" name="FirstName" required [(ngModel)]="register.FirstName" placeholder="First Name">
+            <input type="text" class="form-control" placeholder="First Name" [formControl]="registerForm.controls['firstName']">
         </div>
-        {{register.FirstName}}
+        <div *ngIf="!registerForm.controls['firstName'].valid" class="col-lg-6 help-block">Please enter First Name</div>
     </div>
+
+    <div class="form-group">
+        <div class="col-lg-6 col-lg-offset-2">
+            <button type="submit" class="btn btn-primary" name="registerButton">Register</button>
+        </div>
+    </div>
+</form>
+<form class="form-horizontal">
     <div class="form-group">
         <label class="col-lg-2 control-label">Last Name</label>
         <div class="col-lg-6">
