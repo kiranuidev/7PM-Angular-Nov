@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup,FormBuilder,Validators} from '@angular/forms';
+import {LookupService} from '../services/lookup.service';
 
 @Component({
   selector: 'app-register',
@@ -8,11 +9,12 @@ import {FormGroup,FormBuilder,Validators} from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
     
-  constructor(rb:FormBuilder) {
-   //edfine the form validators
+  constructor(rb:FormBuilder,lookupService:LookupService) {
+   //define the form validators
     this.registerForm = rb.group({
       'firstName':["kiran",Validators.required]
     });
+    this.Countries = lookupService.getCountries();
   }
  
   registerForm:FormGroup
@@ -22,10 +24,9 @@ export class RegisterComponent implements OnInit {
   FirstName:"",
   Gender:"M",
   Country:"IN"
-  }
-
-  Countries=[{name:"India",code:"IN"},
-  {name:"United States",code:"USA"}];
+  };
+  Countries:Array<any>;
+  
 registerUser(){
    console.log(this.register.FirstName);
 }

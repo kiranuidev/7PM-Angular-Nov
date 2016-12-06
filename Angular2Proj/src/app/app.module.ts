@@ -10,13 +10,18 @@ import {HomeComponent} from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
+//Services
+import {LookupService} from './services/lookup.service';
+import {UrlService} from './services/url.service';
+
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     LoginComponent,
     HomeComponent,
-    RegisterComponent,
+    RegisterComponent
     
   ],
   imports: [
@@ -31,7 +36,7 @@ import { RegisterComponent } from './register/register.component';
     // FormsModule,
     // HttpModule
   ],
-  providers: [],
+  providers: [LookupService,UrlService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
