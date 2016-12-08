@@ -9,16 +9,21 @@ import {LookupService} from '../services/lookup.service';
 })
 export class RegisterComponent implements OnInit {
     
-  constructor(rb:FormBuilder,lookupService:LookupService) {
+  constructor(rb:FormBuilder,public lookupService:LookupService) {
    //define the form validators
     this.registerForm = rb.group({
       'firstName':["kiran",Validators.required]
     });
-    this.Countries = lookupService.getCountries();
+   // this.Countries = lookupService.getCountries();
   }
  
   registerForm:FormGroup
   ngOnInit() {
+    this.lookupService.getCountriesFromApi()
+    .then(response=>{
+      this.Countries = response.countries;
+      console.log(response)
+    });
   }
   register= {
   FirstName:"",
@@ -26,7 +31,7 @@ export class RegisterComponent implements OnInit {
   Country:"IN"
   };
   Countries:Array<any>;
-  
+  selectedCountry:string;
 registerUser(){
    console.log(this.register.FirstName);
 }
@@ -34,4 +39,10 @@ registerUser(){
  submitForm(form:any){
     console.log(form);
  }
-}
+//  }
+//  countrySelected(country) {
+//     this.selectedCountry = country ? country.name : 'none';
+//   }
+//selectedCountry:any;
+  
+ }

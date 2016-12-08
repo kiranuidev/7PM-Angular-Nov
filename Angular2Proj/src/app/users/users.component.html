@@ -1,0 +1,21 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>User Name</td>
+            <td>Date Of Birth</td>
+            <td>Phone</td>
+            <td>
+                <select id="ddlCountry" [(ngModel)]="selectedCountry">
+                <option value="IN">India</option>
+                <option value="US">United States</option>
+              </select>{{selectedCountry}}
+            </td>
+        </tr>
+    </thead>
+    <tr *ngFor="let user of Users">
+        <td>{{user.name|lowercase}}</td>
+        <td>{{user.DateOfBirth | date:'dd-MMM-yyyy'}}</td>
+        <td>{{user.phone|phoneformatter :selectedCountry}}</td>
+    </tr>
+
+</table>

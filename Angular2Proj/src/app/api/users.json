@@ -1,0 +1,7 @@
+{
+    "users": [{ "name": "Kiran", "age": 30, "phone": "9959688870" },
+        { "name": "Vamshi", "age": 25, "phone": "1234567890" },
+        { "name": "Vijaya", "age": 25, "phone": "4567890123" }
+    ]
+
+}
