@@ -8,9 +8,9 @@ import {LookupService} from '../services/lookup.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-    
+
   constructor(rb:FormBuilder,public lookupService:LookupService) {
-   //define the form validators
+  
     this.registerForm = rb.group({
       'firstName':["kiran",Validators.required]
     });
@@ -39,10 +39,6 @@ registerUser(){
  submitForm(form:any){
     console.log(form);
  }
-//  }
-//  countrySelected(country) {
-//     this.selectedCountry = country ? country.name : 'none';
-//   }
-//selectedCountry:any;
+
   
  }

@@ -18,6 +18,8 @@ import {LookupService} from './services/lookup.service';
 import {UrlService} from './services/url.service';
 import { UsersComponent } from './users/users.component';
 import { PhoneformatterPipe } from './phoneformatter.pipe';
+import { UserdetailComponent } from './userdetail/userdetail.component';
+import {LoginService} from './services/login.service';
 
 
 @NgModule({
@@ -29,7 +31,8 @@ import { PhoneformatterPipe } from './phoneformatter.pipe';
     RegisterComponent,
     Typeahead,
     UsersComponent,
-    PhoneformatterPipe
+    PhoneformatterPipe,
+    UserdetailComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,7 @@ import { PhoneformatterPipe } from './phoneformatter.pipe';
     // FormsModule,
     // HttpModule
   ],
-  providers: [LookupService,UrlService],
+  providers: [LookupService,UrlService,LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
