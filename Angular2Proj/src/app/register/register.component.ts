@@ -20,10 +20,13 @@ export class RegisterComponent implements OnInit {
   registerForm:FormGroup
   ngOnInit() {
     this.lookupService.getCountriesFromApi()
-    .then(response=>{
-      this.Countries = response.countries;
-      console.log(response)
+    .subscribe((response)=>{
+      this.Countries= response.countries;
     });
+    // .then(response=>{
+    //   this.Countries = response.countries;
+    //   console.log(response)
+    // });
   }
   register= {
   FirstName:"",
@@ -39,6 +42,8 @@ registerUser(){
  submitForm(form:any){
     console.log(form);
  }
-
+  countrySelected(data){
+    console.log(data);
+  }
   
  }

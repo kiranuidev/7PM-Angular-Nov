@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Http} from '@angular/http';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class LookupService {
@@ -15,10 +17,8 @@ export class LookupService {
        code: "USA"}
        ];
   };
-  getCountriesFromApi(){
+  getCountriesFromApi():Observable<any>{
     return this.http.get('app/api/countries.json')
-          .toPromise()
-          .then((response)=> response.json())
-          .catch((errorResponse)=>errorResponse.json());
-  };
+    .map(result=>result.json());
+    };
 }
