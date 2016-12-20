@@ -22,6 +22,8 @@ import { PhoneformatterPipe } from './phoneformatter.pipe';
 import { UserdetailComponent } from './userdetail/userdetail.component';
 import {LoginService} from './services/login.service';
 import { ProductsComponent } from './products/products.component';
+import { HighlightDirective } from './highlight.directive';
+import { DatepickerDirective } from './datepicker.directive';
 
 
 @NgModule(
@@ -38,6 +40,8 @@ import { ProductsComponent } from './products/products.component';
     PhoneformatterPipe,
     UserdetailComponent,
     ProductsComponent,
+    HighlightDirective,
+    DatepickerDirective,
   
   ],
   imports: [

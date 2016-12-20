@@ -16,6 +16,7 @@ export class RegisterComponent implements OnInit {
     });
    // this.Countries = lookupService.getCountries();
   }
+  color="yelloow";
  
   registerForm:FormGroup
   ngOnInit() {
